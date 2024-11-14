@@ -1,0 +1,166 @@
+body {
+  background-image: url("Background.jpg"); /* Replace with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #1abc9c; /* Neon Green */
+  --neon-border-color: #1abc9c;
+}
+
+[data-theme="dark"] {
+  --background-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Neon text and borders */
+h1,
+h2,
+h3 {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+}
+
+.logo {
+  font-size: 2rem; /* Increase logo size */
+  font-weight: bold; /* Make logo bold */
+}
+
+button,
+.nav-links a,
+.social-icons a {
+  color: var(--text-color);
+  border: 2px solid var(--neon-border-color);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 0.5rem; /* Add space between buttons */
+}
+
+/* Disable hover effect when the background is light */
+body.light-mode .nav-links a:hover,
+body.light-mode button:hover {
+  background-color: transparent; /* No background on hover */
+  color: var(--text-color); /* Keep the text color */
+  box-shadow: none; /* No shadow */
+}
+
+button:hover,
+.nav-links a:hover,
+.social-icons a:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+}
+
+/* Layout styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem; /* Space between navigation items */
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+}
+
+.home-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+.project-card,
+.testimonial,
+.contact-section form {
+  background: var(--background-color);
+  border: 2px solid var(--neon-border-color);
+  padding: 1rem;
+  box-shadow: 0 0 10px var(--neon-border-color);
+  transition: transform 0.3s;
+}
+
+.project-card:hover,
+.testimonial:hover,
+.contact-section form:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--neon-border-color),
+    0 0 25px var(--neon-border-color);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--background-color);
+}
+
+/* Smooth section reveal on scroll */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Neon button hover effect */
+.neon-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--neon-border-color);
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s;
+}
+
+.neon-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: transform 0.4s ease;
+  transform: skewX(-30deg) translateX(0);
+}
+
+.neon-button:hover::before {
+  transform: skewX(-30deg) translateX(100%);
+}
+
+.neon-button.neon-glow {
+  box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color),
+    0 0 30px var(--accent-color);
+}
